@@ -1,0 +1,22 @@
+# Prompt the user to enter CustomerID and CustomerName
+read -p "Enter CustomerID: " customerID
+read -p "Enter CustomerName: " customerName
+
+# Prompt the user to enter the units consumed
+read -p "Enter the units consumed: " units
+
+# Calculate the total bill based on the sliding scale rate
+if [ $units -lt 200 ]; then
+    rate=120
+elif [ $units -lt 400 ]; then
+    rate=150
+else
+    rate=180
+fi
+
+totalBill=$((units * rate))
+
+# Display the customer details and total bill
+echo "CustomerID: $customerID"
+echo "CustomerName: $customerName"
+echo "Total Bill: Ksh $totalBill"
